@@ -8,5 +8,13 @@ if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.log(err));
+
+const store = window['store'];
+store.subscribe(() => {
+  const loadState = store.getState().load;
+
+  if (loadState.script === 'angular' && loadState.completed) {
+    platformBrowserDynamic().bootstrapModule(AppModule)
+      .catch(err => console.log(err));
+  }
+});

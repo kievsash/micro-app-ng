@@ -8,6 +8,6 @@ gulp.task('default', function () {
       './dist/styles.bundle.js',
       './dist/main.bundle.js'
     ])
-    .pipe(concat('bundle.js'))
+    .pipe(concat('ng-bundle.min.js'))
     .pipe(gulp.dest('./dist/'));
 });
